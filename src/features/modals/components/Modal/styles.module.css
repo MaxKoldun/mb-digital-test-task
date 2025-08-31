@@ -1,0 +1,32 @@
+.OverlayTransition {
+  background: var(--modal-backdrop-bg);
+  transition: opacity 100ms ease-in-out;
+  opacity: 0;
+}
+
+.OverlayTransition--after-open {
+  opacity: 1;
+}
+
+.OverlayTransition--before-close {
+  opacity: 0;
+}
+
+.ModalTransition {
+  width: calc(100vw - (theme('spacing.4') * 2));
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 200ms linear, transform 200ms linear;
+  transition-delay: 100ms;
+  transform-origin: top;
+}
+
+.ModalTransition--after-open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ModalTransition--before-close {
+  opacity: 0;
+  transform: scale(0.9);
+}

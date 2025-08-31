@@ -10,6 +10,7 @@ import App from './App.tsx';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ToastContainer />
+    <div id="react-modals" />
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <App />

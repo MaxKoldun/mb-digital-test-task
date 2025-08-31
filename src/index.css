@@ -28,6 +28,8 @@
 
 :root {
   --card-width: 250px;
+  --modal-max-width-lg: 500px;
+  --modal-backdrop-bg: #89898950;
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
