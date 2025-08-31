@@ -75,6 +75,7 @@ export const activeUserSlice = createSlice({
 });
 
 export const userSelectors = {
+  user: (state: RootState) => state.user,
   userCourses: (state: RootState) => (state.user ? state.user.courses : {}), // повертаємо порожній об'єкт, якщо null
 };
 

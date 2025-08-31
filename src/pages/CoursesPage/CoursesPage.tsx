@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { type AppDispatch } from '@/store';
 import CourseList from '@/features/courses/components/CourseList';
 import { Typography } from '@/components';
@@ -7,20 +6,12 @@ import { useGetCourses } from '@/features/courses';
 import { Loader } from '@/components';
 import { SecondaryButton } from '@/components';
 import { useMutateLogout } from '@/features/users';
-import { ROUTES } from '@/constants/routes';
 import { buyCourse } from '@/features/users/store/asyncActions';
 
 function CoursesPage() {
-  const navigate = useNavigate();
-  const { mutateAsync, isLoading: logoutLoading } = useMutateLogout({
-    onSuccess: handleLogoutSuccess,
-  });
+  const { mutateAsync, isLoading: logoutLoading } = useMutateLogout();
   const dispatch = useDispatch<AppDispatch>();
   const { data, isLoading } = useGetCourses();
-
-  function handleLogoutSuccess() {
-    navigate(ROUTES.login);
-  }
 
   async function handleLogout() {
     await mutateAsync();

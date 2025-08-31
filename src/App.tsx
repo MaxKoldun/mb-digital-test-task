@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Loader } from './components';
 import { ModalManagementService } from './features/modals';
+import { ProtectedRoute } from './features/users';
 const CoursesPage = lazy(() => import('./pages/CoursesPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const RegisterPage = lazy(() => import('./pages/RegisterPage'));
@@ -21,7 +22,9 @@ export default function App() {
         }
       >
         <Routes>
-          <Route path="/" element={<CoursesPage />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<CoursesPage />} />
+          </Route>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
         </Routes>
