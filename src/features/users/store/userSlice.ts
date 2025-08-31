@@ -1,6 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { User } from '../type';
 import { buyCourse } from './asyncActions';
+import { saveCourseProgress } from './asyncActions';
 import type { RootState } from '@/store';
 import { showToast, TOAST_TYPES } from '@/features/toasts';
 
@@ -15,6 +16,19 @@ export const activeUserSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addCase(saveCourseProgress.fulfilled, (state, action) => {
+        const args = action.meta.arg;
+        if (!state) return;
+
+        const prevCourse = state.courses[args.courseId] ?? {
+          id: args.courseId,
+        };
+
+        state.courses[args.courseId] = {
+          ...prevCourse,
+          progress: action.payload.progress,
+        };
+      })
       .addCase(buyCourse.pending, (state, action) => {
         const courseId = action.meta.arg;
         if (!state) return;

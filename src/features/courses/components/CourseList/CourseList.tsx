@@ -24,6 +24,7 @@ function CourseList({
             course={course}
             isLoading={courseState?.isLoading}
             isPurchased={courseState?.purchased}
+            progress={courseState?.progress}
             onPurchase={onPurchase}
           />
         );

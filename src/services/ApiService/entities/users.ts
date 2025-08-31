@@ -123,6 +123,55 @@ export class UsersApi {
     await sleep(2000);
   };
 
+  saveCourseProgress = async ({
+    courseId,
+    progress,
+  }: {
+    courseId: number;
+    progress: number;
+  }) => {
+    await sleep(500);
+
+    const persistRoot = localStorage.getItem('persist:root') || '';
+    const users = localStorage.getItem('users') || '';
+    const parsedUsers = JSON.parse(users);
+    const rootState = JSON.parse(persistRoot);
+    const user = JSON.parse(rootState.user);
+
+    const newParsedUsers = parsedUsers.map((parsedUser: User) => {
+      if (parsedUser.id === user.id) {
+        const parsedCourse = parsedUser.courses[courseId]
+          ? {
+              ...parsedUser.courses[courseId],
+              progress,
+            }
+          : {
+              progress,
+            };
+        return {
+          ...parsedUser,
+          courses: {
+            ...parsedUser.courses,
+            [courseId]: parsedCourse,
+          },
+        };
+      }
+
+      return parsedUser;
+    });
+
+    localStorage.setItem('users', JSON.stringify(newParsedUsers));
+
+    return {
+      code: 200,
+      error: null,
+      data: {
+        id: courseId,
+        progress,
+      },
+    };
+  };
+
   buyCourse = async (courseId: number) => {
     const randomNumber = Math.random();
 
@@ -154,16 +203,14 @@ export class UsersApi {
               purchased: true,
             }
           : {
-              [courseId]: {
-                purchased: true,
-              },
+              purchased: true,
             };
 
         return {
           ...parsedUser,
           courses: {
             ...parsedUser.courses,
-            ...parsedCourse,
+            [courseId]: parsedCourse,
           },
         };
       }

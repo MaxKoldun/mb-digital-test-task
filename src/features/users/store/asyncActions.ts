@@ -15,3 +15,28 @@ export const buyCourse = createAsyncThunk<
 
   return response.data;
 });
+
+type SaveCourseProgressResult = {
+  id: number;
+  progress: number;
+};
+
+type SaveCourseProgressArgs = {
+  courseId: number;
+  progress: number;
+};
+
+export const saveCourseProgress = createAsyncThunk<
+  SaveCourseProgressResult,
+  SaveCourseProgressArgs
+>(
+  'user/saveCourseProgress',
+  async ({ courseId, progress }: SaveCourseProgressArgs) => {
+    const response = await apiService.users.saveCourseProgress({
+      courseId,
+      progress,
+    });
+
+    return response.data;
+  }
+);

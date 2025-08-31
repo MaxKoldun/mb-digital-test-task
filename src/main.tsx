@@ -4,16 +4,18 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import { persistor, store } from './store';
 import { ToastContainer } from '@features/toasts/index.ts';
+import { ModalsProvider } from '@/features/modals';
 import './index.css';
 import App from './App.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ToastContainer />
-    <div id="react-modals" />
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <App />
+        <ModalsProvider>
+          <App />
+        </ModalsProvider>
       </PersistGate>
     </Provider>
   </StrictMode>
