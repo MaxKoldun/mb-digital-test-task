@@ -3,18 +3,18 @@ import { useDispatch } from 'react-redux';
 import { ApiService } from '@/services';
 import { userActions } from '@/features/users/store';
 import { useShowToast, TOAST_TYPES } from '@/features/toasts';
-import type { RegisterFormUser } from '../../type';
+import type { LoginFormData } from '../../type';
 
-export function useMutateRegister(options: { onSuccess: () => void }) {
+export function useMutateLogin(options: { onSuccess: () => void }) {
   const showToast = useShowToast();
   const { onSuccess } = options;
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
-  async function handleRegister(data: RegisterFormUser) {
+  async function handleLogin(data: LoginFormData) {
     setLoading(true);
 
-    const response = await ApiService.users.signup(data);
+    const response = await ApiService.users.login(data);
 
     if (response.error) {
       showToast(TOAST_TYPES.ERROR, { title: response.error.message });
@@ -31,7 +31,7 @@ export function useMutateRegister(options: { onSuccess: () => void }) {
   return {
     data: {},
     isLoading: loading,
-    mutateAsync: handleRegister,
+    mutateAsync: handleLogin,
     error: null,
   };
 }

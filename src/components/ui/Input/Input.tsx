@@ -18,12 +18,14 @@ export const Input = memo<InputProps>(
     placeholder,
     error,
     name,
+    required,
     className,
     autoFocus,
   }) => {
     return (
       <input
         name={name}
+        required={required}
         value={value}
         type={type}
         title={title}

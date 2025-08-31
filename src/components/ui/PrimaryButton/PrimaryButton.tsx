@@ -17,13 +17,11 @@ export function PrimaryButton({
   onClick,
   className,
 }: PrimaryButtonProps) {
-  const lgButtonClassNames = cx(
-    'bg-primary-600 text-white active:bg-primary-700',
-    {
-      'cursor-not-allowed active:bg-primary-700': disabled || loading,
-      'opacity-50': disabled,
-    }
-  );
+  const lgButtonClassNames = cx('bg-primary-600 text-white', {
+    'cursor-pointer active:bg-primary-700': !(disabled || loading),
+    'cursor-not-allowed active:bg-primary-600': disabled || loading,
+    'opacity-50': disabled,
+  });
 
   const smButtonClassNames = cx(
     'rounded-sm bg-primary-100 font-semibold text-primary-600 active:bg-primary-200',
@@ -41,8 +39,9 @@ export function PrimaryButton({
       size={size}
       block={block}
       disabled={disabled || loading}
+      loaderColor="white"
       className={cx(
-        'border-none cursor-pointer',
+        'border-none',
         {
           [lgButtonClassNames]: size === 'lg',
           [smButtonClassNames]: size === 'sm',

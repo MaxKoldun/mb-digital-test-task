@@ -1,1 +1,1 @@
-export { useMutateRegister } from './hooks';
+export { useMutateRegister, useMutateLogout } from './hooks';

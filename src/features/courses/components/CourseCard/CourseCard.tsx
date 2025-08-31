@@ -1,10 +1,20 @@
+import { memo } from 'react';
 import { type Course } from '@features/courses/types';
 import { Price } from '@/components';
 import { Typography } from '@/components';
 import { PrimaryButton } from '@/components';
 
-function CourseCard(props: { course: Course }) {
-  const { course } = props;
+function CourseCardComponent(props: {
+  course: Course;
+  isLoading?: boolean;
+  isPurchased?: boolean;
+  onPurchase: (p: number) => void;
+}) {
+  const { course, onPurchase, isLoading, isPurchased } = props;
+
+  function handlePurchase() {
+    onPurchase(course.id);
+  }
 
   return (
     <div className="h-full flex flex-col">
@@ -20,19 +30,33 @@ function CourseCard(props: { course: Course }) {
           {course.description}
         </Typography>
         <PrimaryButton
-          onClick={() => {
-            console.log('click');
-          }}
-          className="mt-auto flex justify-center items-center gap-1 еуче"
+          onClick={handlePurchase}
+          disabled={isPurchased}
+          loading={isLoading}
+          className="mt-auto flex justify-center items-center gap-1"
         >
-          <span>Purchase</span>
-          <Typography variant="body1" className="m-0">
-            <Price currency={course.currency} amount={course.price} />
-          </Typography>
+          {isPurchased ? (
+            <span>Purchased</span>
+          ) : (
+            <>
+              <span>Purchase</span>
+              <Typography variant="body1" className="m-0">
+                <Price currency={course.currency} amount={course.price} />
+              </Typography>
+            </>
+          )}
         </PrimaryButton>
       </div>
     </div>
   );
 }
+
+const CourseCard = memo(
+  CourseCardComponent,
+  (prev, next) =>
+    prev.isLoading === next.isLoading &&
+    prev.isPurchased === next.isPurchased &&
+    prev.course === next.course
+);
 
 export default CourseCard;
