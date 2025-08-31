@@ -3,6 +3,11 @@ const config = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+    function ({ addVariant }) {
+      addVariant('children', '& > *');
+    },
+  ],
 };
 export default config;

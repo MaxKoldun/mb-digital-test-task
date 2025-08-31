@@ -1,0 +1,1 @@
+export { useMutateRegister } from './useMutateRegister';
