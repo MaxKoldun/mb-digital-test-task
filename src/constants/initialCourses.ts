@@ -15,7 +15,7 @@ export const initialCourses = [
     title: 'Title 1',
     description: 'Very Very Long Detailed Description about the course to show that long descriptions are possible 1',
     videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
-    price: 10,
+    price: 50,
     currency: '$',
   },
   {
@@ -23,7 +23,7 @@ export const initialCourses = [
     title: 'Very Long Course Title as Example 2',
     description: 'Description 2',
     videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-    price: 10,
+    price: 6,
     currency: '$',
   },
   {
@@ -31,7 +31,7 @@ export const initialCourses = [
     title: 'Title 3',
     description: 'Description 3',
     videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
-    price: 10,
+    price: 100,
     currency: '$',
   },
   {
@@ -39,7 +39,7 @@ export const initialCourses = [
     title: 'Title 4',
     description: 'Description 4',
     videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
-    price: 10,
+    price: 55,
     currency: '$',
   },
   {
@@ -47,7 +47,7 @@ export const initialCourses = [
     title: 'Title 5',
     description: 'Description 5',
     videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
-    price: 10,
+    price: 49,
     currency: '$',
   },
   {
@@ -55,7 +55,7 @@ export const initialCourses = [
     title: 'Title 6',
     description: 'Description 6',
     videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4',
-    price: 10,
+    price: 99,
     currency: '$',
   },
   {
@@ -63,7 +63,7 @@ export const initialCourses = [
     title: 'Title 7',
     description: 'Description 7',
     videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4',
-    price: 10,
+    price: 1,
     currency: '$',
   },
   {
@@ -71,7 +71,7 @@ export const initialCourses = [
     title: 'Title 8',
     description: 'Description 8',
     videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4',
-    price: 10,
+    price: 19,
     currency: '$',
   },
   {
@@ -79,7 +79,7 @@ export const initialCourses = [
     title: 'Very Long Course Title as Example 9',
     description: 'Description 9',
     videoUrl: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
-    price: 10,
+    price: 25,
     currency: '$',
   },
 ];
