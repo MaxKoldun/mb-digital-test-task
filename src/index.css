@@ -1,0 +1,74 @@
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@theme {
+  --color-white: #ffffff;
+  --color-primary-700: #23312a;
+  --color-primary-600: #39614e;
+  --color-primary-500: #487a62;
+  --color-primary-400: #cfdece;
+  --color-primary-300: #dde7dc;
+  --color-primary-200: #ebf1eb;
+  --color-primary-100: #f5f8f5;
+  --color-primary-0: #fdfdfd;
+
+  --color-grey-800: #fcfbfb;
+  --color-grey-700: #1a1a1a;
+  --color-grey-600: #414141;
+  --color-grey-500: #5c5c5c;
+  --color-grey-400: #aaa8a8;
+  --color-grey-300: #e7e7e7;
+  --color-grey-200: #f7f7f7;
+  --color-grey-100: #fcfcfc;
+  --color-grey-0: #ffffff;
+
+  --color-red-500: #db1f35;
+  --login-form: 400px;
+}
+
+:root {
+  --card-width: 250px;
+  --modal-max-width-lg: 500px;
+  --modal-backdrop-bg: #89898950;
+
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+@layer utilities {
+  .typography-title1 {
+    @apply text-xl;
+    @apply font-bold;
+  }
+
+  .typography-heading1 {
+    @apply text-xl;
+    @apply font-bold;
+    @apply leading-[125%];
+  }
+
+  .typography-body1 {
+    @apply text-base;
+    @apply font-bold;
+  }
+
+  .typography-body3 {
+    @apply text-sm;
+    @apply font-semibold;
+  }
+
+  .typography-caption1 {
+    @apply text-xs;
+    @apply leading-[135%];
+  }
+}
